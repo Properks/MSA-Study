@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Properks/spring-config-server-repository
+          clone-on-start: true
+          username: Properks
+          password: ${GITHUB_TOKEN}
+          default-label: main
+    fail-fast: true
+  security:
+    user:
+      name: spring_cloud_user
+      password: 1q2w3e4r!
