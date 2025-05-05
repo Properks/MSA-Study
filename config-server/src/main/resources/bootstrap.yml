@@ -8,10 +8,12 @@ spring:
           uri: https://github.com/Properks/spring-config-server-repository
           clone-on-start: true
           username: Properks
-          password: ${GITHUB_TOKEN}
+          password: '{cipher}80d89a51d28d238f0f9b8e55c2493a3b2960d9f0ca6a663a3f8e2ca18e8e4b4cb861256864cc7844202c9c4c306b517d45e65d522ea335a409bb28d3af11c1dd'
           default-label: main
     fail-fast: true
   security:
     user:
       name: spring_cloud_user
-      password: 1q2w3e4r!
+      password: '{cipher}f02dbd691e5f16e97ac456e31e2a4602c2090a4af8f85306533da9d1c088b723'
+encrypt:
+  key: ${ENCRYPT_KEY}
