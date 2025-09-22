@@ -1,5 +1,6 @@
 package org.jeongmo.configserver.security
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.Customizer
@@ -15,7 +16,10 @@ import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig {
+class SecurityConfig(
+    @Value("\${config-server.username}") private val username: String,
+    @Value("\${config-server.password}") private val password: String,
+) {
 
     @Bean
     fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
@@ -32,8 +36,8 @@ class SecurityConfig {
     @Bean
     fun userDetailsService(): UserDetailsService {
         val user: UserDetails = User.builder()
-            .username("admin")
-            .password(passwordEncoder().encode("admin1234!"))
+            .username(this.username)
+            .password(passwordEncoder().encode(this.password))
             .roles("ADMIN")
             .build()
         return InMemoryUserDetailsManager(user)
