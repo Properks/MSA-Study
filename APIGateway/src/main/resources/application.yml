@@ -3,15 +3,15 @@ spring:
     name: api-gateway
   profiles:
     active: dev
-  cloud:
-    gateway:
-      server:
-        webflux:
-          routes:
-            - id: health-check
-              uri: lb://msaTest
-              predicates:
-                - Path=/health-check/**
+#  cloud:
+#    gateway:
+#      server:
+#        webflux:
+#          routes:
+#            - id: health-check
+#              uri: lb://msaTest
+#              predicates:
+#                - Path=/health-check/**
 #      server:
 #        webmvc:
 #          routes:
