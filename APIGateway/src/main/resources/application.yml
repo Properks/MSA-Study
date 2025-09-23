@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: health-check
+              uri: http://localhost:8080
+              predicates:
+                - Path=/health-check/**
+#      server:
+#        webmvc:
+#          routes:
+#            - id: health-check
+#              uri: http://localhost:8080
+#              predicates:
+#                - Path=/health-check/**
+
+server:
+  port: 8081
+
