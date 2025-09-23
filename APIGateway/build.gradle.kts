@@ -23,6 +23,7 @@ extra["springCloudVersion"] = "2025.0.0"
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
     runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.104.Final:osx-aarch_64")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
